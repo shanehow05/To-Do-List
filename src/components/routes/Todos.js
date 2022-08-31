@@ -10,7 +10,7 @@ function Todos () {
 
     const fetchData = async () => {
         try {
-            const response = await axios('http://localhost:3000/api/todos')
+            const response = await axios(`https://tranquil-reaches-95487.herokuapp.com/api/todos`)
             console.log(response)
             setTodos(response.data.todo)
            

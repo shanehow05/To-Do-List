@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Layout  from '../shared/Layout'
 import TodoForm from '../shared/TodoForm'
-import apiUrl from "../../apiConfig"
+// import apiUrl from "../../apiConfig"
 
 
 
@@ -25,7 +25,7 @@ function TodoCreate () {
         event.preventDefault()
 
         axios({
-            url:`${apiUrl}/todos`, 
+            url:`https://tranquil-reaches-95487.herokuapp.com/api/todos`, 
             method: 'POST',
             data: todo
         }).then(res => setCreatedTodo(res.data.todo)).catch(console.error)

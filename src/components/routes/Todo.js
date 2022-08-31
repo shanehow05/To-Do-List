@@ -3,7 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 import Layout from "../shared/Layout";
 // import apiUrl from "../apiConfig"
-import apiUrl from "../../apiConfig";
+// import apiUrl from "../../apiConfig";
 
 
 
@@ -18,7 +18,7 @@ function Todo() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await  axios(`${apiUrl}/todos/${id}`)
+                const response = await  axios(`https://tranquil-reaches-95487.herokuapp.com/api/todos/${id}`)
                 console.log(response)
                 const result = response.data.todo
                 setTodo(result)
@@ -33,7 +33,7 @@ function Todo() {
 
 const destroy = () => {
     axios ({
-        url: `${apiUrl}/todos/${id}`, 
+        url: `https://tranquil-reaches-95487.herokuapp.com/api/todos/${id}`, 
         method: 'DELETE'
     }).then(() => setDeleted(true)).catch(console.error)
 }

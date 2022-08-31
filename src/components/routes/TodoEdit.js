@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../shared/Layout'
 import TodoForm from '../shared/TodoForm'
-import apiUrl from "../../apiConfig"
+// import apiUrl from "../../apiConfig"
 
 function TodoEdit() {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ function TodoEdit() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios(`${apiUrl}/todos/${id}`)
+                const response = await axios(`https://tranquil-reaches-95487.herokuapp.com/api/todos/${id}`)
                 setTodo(response.data)
 
             } catch (error) {
@@ -38,7 +38,7 @@ function TodoEdit() {
     const handleSubmit = (event) => {
         event.preventDefault()
         axios({
-            url: `${apiUrl}/todos/${id}`,
+            url: `https://tranquil-reaches-95487.herokuapp.com/api/todos/${id}`,
             method: 'PUT',
             data: todo 
         }).then((res) => { console.log(res); setUpdated(true)}).catch(console.error)
