@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 import Layout from "../shared/Layout";
+// import apiUrl from "../apiConfig"
+import apiUrl from "../../apiConfig";
+
 
 
 function Todo() {
@@ -15,7 +18,7 @@ function Todo() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await  axios(`http://localhost:3000/api/todos/${id}`)
+                const response = await  axios(`${apiUrl}/todos/${id}`)
                 console.log(response)
                 const result = response.data.todo
                 setTodo(result)
@@ -30,7 +33,7 @@ function Todo() {
 
 const destroy = () => {
     axios ({
-        url: `http://localhost:3000/api/todos/${id}`, 
+        url: `${apiUrl}/todos/${id}`, 
         method: 'DELETE'
     }).then(() => setDeleted(true)).catch(console.error)
 }

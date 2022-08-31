@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Layout  from '../shared/Layout'
 import TodoForm from '../shared/TodoForm'
+import apiUrl from "../../apiConfig"
 
 
 
@@ -24,7 +25,7 @@ function TodoCreate () {
         event.preventDefault()
 
         axios({
-            url:`http://localhost:3000/api/todos`, 
+            url:`${apiUrl}/todos`, 
             method: 'POST',
             data: todo
         }).then(res => setCreatedTodo(res.data.todo)).catch(console.error)

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Layout from '../shared/Layout'
 import TodoForm from '../shared/TodoForm'
+import apiUrl from "../../apiConfig"
 
 function TodoEdit() {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function TodoEdit() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios(`http://localhost:3000/api/todos/${id}`)
+                const response = await axios(`${apiUrl}/todos/${id}`)
                 setTodo(response.data)
 
             } catch (error) {
@@ -25,7 +26,7 @@ function TodoEdit() {
             }
         }
         fetchData()
-    }, []);
+    }, [id]);
 
 
     const handleChange = (event) => {
@@ -37,7 +38,7 @@ function TodoEdit() {
     const handleSubmit = (event) => {
         event.preventDefault()
         axios({
-            url: `todos/edit/${id}`,
+            url: `${apiUrl}/todos/${id}`,
             method: 'PUT',
             data: todo 
         }).then((res) => { console.log(res); setUpdated(true)}).catch(console.error)
