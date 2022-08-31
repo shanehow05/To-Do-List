@@ -28,7 +28,9 @@ Here at Get'Er Done we believe in completeing tasks with efficency. Do you have 
 I used the Inspiration API to to pull a motivational quote that can be read by clicking the Quote link. This API uses a cache, which exprires every hour. During this period, quotes will not be updated. This API only provides one endpoint. -[Inspiration API](https://api.goprogram.ai/inspiration/docs/) 
 
 This is an example of how to get To-Do List data from the Database I created with MongoDB.
+
 axios.get(`https://tranquil-reaches-95487.herokuapp.com/api/todos`)
+
 ![](./src//images/example.png)
 
 
